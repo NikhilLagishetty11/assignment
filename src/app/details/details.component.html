@@ -1,0 +1,87 @@
+<!-- <p>details works!</p> -->
+<!-- <mat-toolbar color="primary">
+    
+    <span>My App</span>
+   <div class ="spacer"></div>
+   <a mat-button>Home</a>
+   <a mat-raised-button color="warn"  routerLink='/dashboard/' >Details</a>&nbsp;&nbsp;
+   <a mat-raised-button color='accent' routerLink="">Signup</a>
+   </mat-toolbar> -->
+   <app-topnav></app-topnav>
+ 
+    <div class="container">
+        <h2 *ngIf="isAddMode" class="headings"><strong>REGISTRATION</strong></h2>
+        <h3 *ngIf="!isAddMode" class="headings">UPDATE DETAILS</h3>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+            <div fxLayout>
+                <div class="textField">
+                    <mat-form-field appearance="outline" class="form-field">
+                        <mat-label>First Name</mat-label>
+                        <input matInput formControlName="firstName">
+                        <mat-error *ngIf="f.firstName.errors && f.firstName.touched">
+                            <div *ngIf="f.firstName.errors.required">First Name is Mandatory</div>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="textField">
+                    <mat-form-field appearance="outline" class="form-field">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput formControlName="lastName">
+                        <mat-error *ngIf="f.lastName.errors" class="invalid-feedback">
+                            <div *ngIf="f.lastName.errors.required">last Name is Mandatory</div>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div fxLayout>
+                <div class="textField">
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" />
+                <mat-error *ngIf="f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email is Mandatory</div>
+                    <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                </mat-error>
+            </mat-form-field></div>&nbsp;&nbsp;  
+            <div class="textField"> 
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Mobile No</mat-label>
+                <input matInput formControlName="mobile" />
+                <mat-error *ngIf="f.mobile.errors" class="invalid-feedback">
+                    <div *ngIf="f.mobile.errors.required">Mobile Number is Mandatory</div>
+                    <div *ngIf="f.mobile.errors.pattern">Must be 10 digits</div>
+                </mat-error>
+            </mat-form-field></div>
+        </div>
+            <div fxLayout>
+                <div class="textField">
+                    <mat-form-field appearance="outline" class="form-field">
+                        <mat-label>Address</mat-label>
+                        <input matInput formControlName="address" />
+                        <mat-error *ngIf="f.address.errors" class="invalid-feedback">
+                            <div *ngIf="f.address.errors.required">Address is Mandatory</div>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div>
+                <button mat-raised-button color="primary" class="form-field">Submit</button><br>
+              
+            </div>
+          
+        </form>
+    </div>
+   
+    <!-- <mat-toolbar color="primary">
+    
+      
+        <div class ="spacer"></div>
+       
+      
+      
+       
+       </mat-toolbar> -->
+
+       <app-bottomnav></app-bottomnav>
+<router-outlet></router-outlet>

@@ -1,0 +1,36 @@
+table {
+    border: 1px solid seashell;
+    box-shadow: 10px slateblue;
+}
+
+table {
+    width: 100%;
+}
+
+.dashboard {
+    justify-content: center;
+    padding: 20px;
+}
+
+.dashboard>*:not(:last-child) {
+    margin-right: 20px;
+}
+
+div {
+  
+    text-align: center;
+
+}
+
+mat-header-cell,
+mat-row,
+mat-cell {
+    border: solid 1px whitesmoke;
+}
+
+
+
+
+/* .spacer{
+    flex: 1 1 auto;
+} */

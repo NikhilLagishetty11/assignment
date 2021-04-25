@@ -1,0 +1,92 @@
+
+<!-- <mat-toolbar color="primary">
+    
+    <span>My App</span>
+   <div class ="spacer"></div>
+   <a mat-button>Home</a>
+   <a mat-raised-button color="warn"  routerLink='/dashboard/' >Details</a>&nbsp;&nbsp;
+   <a mat-raised-button color='accent' routerLink="">Signup</a>
+   </mat-toolbar> -->
+<app-topnav></app-topnav>
+ 
+  
+    <div fxLayout="row" fxLayout.xs="column" class="dashboard">
+        <div>
+            <button mat-raised-button color="primary" class="form-control" (click)="showAll()">Show Details</button>
+        </div>&nbsp;
+        
+        </div> 
+          <div fxLayout="row" fxLayout.xs="column" class="dashboard">
+             
+        <div>
+      
+            <input type="datetime-local" name="search" [(ngModel)]="searchText" style="height: 38px;">
+        </div>&nbsp;
+          
+        <div>
+            <input type="datetime-local" name="searchto" [(ngModel)]="searchTextto" style="height: 38px;">
+        </div>&nbsp;
+        <div>
+            <button mat-raised-button color="primary" class="form-control" (click)="search()">Search</button>
+        </div> </div>&nbsp;
+
+
+
+    <div *ngIf="disp">
+        <mat-table [dataSource]="dsColTable" class="mat-elevation-z8">
+            <ng-container [matColumnDef]="column" *ngFor="let column of colTable">
+                <ng-container *ngIf="column !== 'edit' && column !== 'delete'">
+                    <mat-header-cell *matHeaderCellDef> {{column}} </mat-header-cell>
+                    <mat-cell *matCellDef="let selectedUsers"> {{selectedUsers[column]}} </mat-cell>
+                </ng-container>
+                <ng-container *ngIf="column === 'edit' ">
+                    <mat-header-cell *matHeaderCellDef> {{column}} </mat-header-cell>
+                    <mat-cell *matCellDef="let selectedUsers ">
+                     
+                        <button mat-raised-button color="primary" [routerLink]="['/details/',selectedUsers.id]" >Edit</button>
+                    </mat-cell>
+                </ng-container>
+                <ng-container *ngIf="column === 'delete' ">
+                    <mat-header-cell *matHeaderCellDef> {{column}} </mat-header-cell>
+                    <mat-cell *matCellDef="let selectedUsers ">
+                     
+                        <button mat-raised-button color="warn" (click)="deletePost(selectedUsers.id)">Delete</button>
+                    </mat-cell>
+                </ng-container>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="colTable"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: colTable;"></mat-row>
+        </mat-table>
+
+        <ag-grid-angular 
+style="width: 1500px; height:750px;"  
+class="ag-theme-balham" 
+[columnDefs]="columnDefs"
+[enableSorting]="true"
+[enableFilter]="true"
+[pagination] ="true"
+[sortingOrder] = "true"
+[sortingOrder]="sortingOrder"
+rowSelection="multiple"
+ (gridReady) = "onGridReady($event)">
+
+</ag-grid-angular>
+
+
+
+    </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <app-bottomnav></app-bottomnav>
+
+    
+
+
+
+
+<router-outlet></router-outlet>
+
+
+<!-- <mat-toolbar color="primary">
+
+    <div class ="spacer"></div>
+ 
+   </mat-toolbar> -->
