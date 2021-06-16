@@ -96,15 +96,15 @@ export class DashboardComponent implements OnInit {
     this.dsColTable = new MatTableDataSource<Details>();
 
   }
-  onGridReady(params){
-  this.gridApi= params.api;
-  this.gridColumnApi=params.columnApi;
-  this.httpClient.get("https://raw.githubusercontent.com/ag-grid/ag-grid-docs/master/src/olympicWinnersSmall.json")
-  .subscribe(data=>{
-    params.api.setRowData(data);
-  })
+  // onGridReady(params){
+  // this.gridApi= params.api;
+  // this.gridColumnApi=params.columnApi;
+  // this.httpClient.get("https://raw.githubusercontent.com/ag-grid/ag-grid-docs/master/src/olympicWinnersSmall.json")
+  // .subscribe(data=>{
+  //   params.api.setRowData(data);
+  // })
  
-  }
+  // }
 
   disp: boolean = false
   ngOnInit(): void {
